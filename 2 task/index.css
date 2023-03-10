@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-base: "Inter", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
+  --color-font-base: #E4E5EA;
+  --color-bg: #0E1014;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-font-base);
+}
+
+body {
+  font-family: var(--font-base);
+  font-weight: 400;
+  color: var(--color-font-base);
+  background-color: var(--color-bg);
+}
+
+.container {
+  max-width: 1141px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 57px;
+  font-weight: 500;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+  margin-right: 50px;
+  font-family: var(--font-secondary);
+  font-size: 10px;
+  font-weight: 300;
+}
+.logo img {
+  background-color: transparent;
+}
+.logo span {
+  margin-top: 10px;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  font-size: 16px;
+  list-style: none;
+}
+.menu__item {
+  margin: 0 30px 10px 0;
+}
+
+.contacts {
+  margin: 5px 0 0 auto;
+}
+.contacts__list {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.contacts__item {
+  margin: 0 0 10px 30px;
+}
+.contacts__item:first-child {
+  margin-left: 0;
+}
+.contacts__item--phone {
+  margin-left: 10px;
+}/*# sourceMappingURL=index.css.map */
