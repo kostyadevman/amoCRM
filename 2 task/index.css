@@ -11,6 +11,9 @@
   --font-secondary: "Montserrat", sans-serif;
   --color-font-base: #E4E5EA;
   --color-bg: #0E1014;
+  --color-gradient-main: #FFBF2E 24%, #FF3F78;
+  --color-gradient-secondary: #FCB045 37%, #FD1D1D;
+  --color-btn: #4077F3;
 }
 
 a {
@@ -35,7 +38,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: 57px;
+  margin: 60px 0 90px 0;
+  line-height: 19px;
   font-weight: 500;
 }
 
@@ -53,6 +57,7 @@ body {
 }
 .logo span {
   margin-top: 10px;
+  line-height: 12px;
 }
 
 .menu {
@@ -84,4 +89,88 @@ body {
 }
 .contacts__item--phone {
   margin-left: 10px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.promo {
+  max-width: 365px;
+}
+.promo__title {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+}
+.promo__text {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+.promo span {
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--color-gradient-main));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.consultation {
+  display: flex;
+  flex-direction: column;
+  max-width: 330px;
+  text-align: end;
+}
+.consultation__text {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 5%;
+  background: linear-gradient(90deg, var(--color-gradient-secondary));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+}
+.consultation__text > span {
+  font-weight: 500;
+  background: var(--color-font-base);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-transform: none;
+}
+.consultation__list {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.consultation__item {
+  width: 135px;
+  margin: 0 0 30px 30px;
+}
+.consultation__item span {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+}
+.consultation__item p {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+.consultation__button {
+  margin: 60px 10px 0 60px;
+  padding: 21px 24px 21px 45px;
+  text-align: center;
+  background-color: var(--color-btn);
 }/*# sourceMappingURL=index.css.map */
