@@ -24,6 +24,7 @@
 
     // colors
     --color-font-base: #E4E5EA;
+    --color-font--secondary: #656566;
     --color-bg: #0E1014;
     --color-gradient-main: #FFBF2E 24%, #FF3F78;
     --color-gradient-secondary: #FCB045 37%, #FD1D1D;
@@ -34,6 +35,11 @@ a {
     text-decoration: none;
     color: var(--color-font-base)
 }
+
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: var(--font-base);
     font-weight: 400;
@@ -42,7 +48,10 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     max-width: 1141px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 5vw;
 }
@@ -111,10 +120,12 @@ body {
     }
 }
 
-main {
+.main {
     display: flex;
+    flex: 1 0 auto;
     flex-wrap:wrap;
     justify-content: space-between;
+    margin-bottom: 125px;
 }
 
 .promo {
@@ -144,6 +155,7 @@ main {
     display: flex;
     flex-direction: column;
     max-width: 330px;
+    margin-top: 20px;
     text-align: end;
     
 
@@ -201,4 +213,82 @@ main {
         text-align: center;
         background-color: var(--color-btn);
     }
+}
+
+
+.footer {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 19px;
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+}
+
+.about,
+.menu-footer,
+.contacts-footer {
+    &__title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: var(--color-font--secondary);
+        text-transform: uppercase;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        list-style: none;
+    }
+
+    &__item {
+        margin: 0 10px 10px 0;
+    }
+}
+
+.about {
+    margin-right: 95px;
+}
+
+
+.menu-footer {
+    min-width: 400px;
+
+    &__list {
+        height: 160px;
+    }
+    
+    &__item {
+        margin-right: 50px;
+    }
+}
+
+.contacts-footer {
+    margin: 0 0 0 auto;
+    text-align: end;
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__item {
+        margin: 0 0 20px 10px;
+    }
+}
+
+.copyright {
+    text-align: end;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
 }
