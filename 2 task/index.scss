@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
 @mixin mobile {
-    @media (max-width: 320px) { @content; }
+    @media (max-width: 600px) { @content; }
 }
 
 @mixin gradient-text($angle: 90deg, $colors) {
@@ -28,6 +28,7 @@
     --color-bg: #0E1014;
     --color-gradient-main: #FFBF2E 24%, #FF3F78;
     --color-gradient-secondary: #FCB045 37%, #FD1D1D;
+    --color-gradient-dash: #FCB045, #FD1D1D;
     --color-btn: #4077F3;
 }
 
@@ -54,6 +55,10 @@ body {
     height: 100%;
     margin: 0 auto;
     padding: 0 5vw;
+
+    @include mobile {
+        padding: 0 15px;
+    }
 }
 
 .header {
@@ -63,6 +68,15 @@ body {
     margin: 60px 0 90px 0;
     line-height: 19px;
     font-weight: 500;
+
+    @include mobile {
+        margin: 0 0 0 0;
+
+        .logo,
+        .contacts {
+            display: none;
+        }
+    }
 }
 
 .logo {
@@ -92,8 +106,25 @@ body {
     font-size: 16px;
     list-style: none;
 
+    @include mobile {
+        justify-content: space-between;
+        margin: 20px 0;
+    }
+
     &__item {
         margin: 0 30px 10px 0;
+        
+        @include mobile {
+            margin: 0 0 10px 0;
+        }
+
+    }
+
+    @include mobile {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
     }
 }
 
@@ -126,16 +157,31 @@ body {
     flex-wrap:wrap;
     justify-content: space-between;
     margin-bottom: 125px;
+
+    @include mobile {
+        position: relative;
+        margin-bottom: 60px;
+    }
 }
 
 .promo {
     max-width: 365px;
+
+    @include mobile {
+        margin-bottom: 45px;
+    }
 
     &__title {
         margin-bottom: 30px;
         font-weight: 400;
         font-size: 48px;
         line-height: 58px;
+
+        @include mobile {
+            font-size: 36px;
+            line-height: 44px;
+            margin-bottom: 15px;
+        }
     }
 
     &__text {
@@ -157,6 +203,11 @@ body {
     max-width: 330px;
     margin-top: 20px;
     text-align: end;
+
+    @include mobile {
+        margin-top: 0;
+        text-align: start;
+    }
     
 
     &__text {
@@ -167,6 +218,11 @@ body {
         letter-spacing: 5%;
         @include gradient-text(90deg, var(--color-gradient-secondary));
         text-transform: uppercase;
+
+        @include mobile {
+            margin-bottom: 20px;
+            text-transform: none;
+        }
        
         > span {
             font-weight: 500;
@@ -188,6 +244,10 @@ body {
         width: 135px;
         margin: 0 0 30px 30px;
 
+        @include mobile {
+            margin: 0 0 15px 0;
+        }
+
         span {
             display: block;
             margin-bottom: 6px;
@@ -195,7 +255,25 @@ body {
             font-size: 18px;
             line-height: 22px;
             text-transform: uppercase;
-            letter-spacing: 5%;
+            letter-spacing: 0.05em;
+
+            @include mobile {
+                margin-bottom: 0;
+                font-family: var(--font-secondary);
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 16px;
+
+                &::before {
+                    content: "";
+                    display: inline-block;
+                    width: 10px;
+                    margin-right: 5px;
+                    border: 1px solid transparent;
+                    vertical-align: middle;
+                    border-image: linear-gradient(90deg,var(--color-gradient-dash)) 1;
+                }
+            }
         }
 
         p {
@@ -203,6 +281,11 @@ body {
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
+
+            @include mobile {
+                display: none;
+                
+            }
         }
 
     }
@@ -212,6 +295,10 @@ body {
         padding: 21px 24px 21px 45px;
         text-align: center;
         background-color: var(--color-btn);
+
+        @include mobile {
+            display: none;
+        }
     }
 }
 
@@ -227,6 +314,10 @@ body {
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 30px;
+
+        @include mobile {
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -240,6 +331,12 @@ body {
         line-height: 17px;
         color: var(--color-font--secondary);
         text-transform: uppercase;
+
+        @include mobile {
+            font-size: 12px;
+            line-height: 15px;
+            letter-spacing: 0.05em;
+        }
     }
 
     &__list {
@@ -251,16 +348,31 @@ body {
 
     &__item {
         margin: 0 10px 10px 0;
+
+        @include mobile {
+            font-size: 14px;
+            line-height: 17px;
+        }
     }
 }
 
 .about {
     margin-right: 95px;
+
+    @include mobile {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
 }
 
 
 .menu-footer {
     min-width: 400px;
+
+    @include mobile {
+        margin-bottom: 20px;
+        min-width: 100%;
+    }
 
     &__list {
         height: 160px;
@@ -268,6 +380,11 @@ body {
     
     &__item {
         margin-right: 50px;
+
+        @include mobile {
+            width: 45%;
+            margin-right: 0;
+        }
     }
 }
 
@@ -275,20 +392,105 @@ body {
     margin: 0 0 0 auto;
     text-align: end;
 
+    @include mobile {
+        margin: 0;
+        text-align: start;
+    }
+
     &__wrapper {
         display: flex;
         justify-content: flex-end;
+
+        @include mobile {
+            margin: 10px 0;
+            justify-content: flex-start;
+        }
     }
 
     &__item {
         margin: 0 0 20px 10px;
+
+        @include mobile {
+            margin: 0 10px 0 0;
+        }
     }
 }
 
 .copyright {
+    margin-bottom: 20px;
     text-align: end;
     font-family: var(--font-secondary);
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
+
+    @include mobile {
+        margin-top: 50px;
+        text-align: start;
+    }
+}
+
+.red-light {
+    position: absolute;
+    width: 311px;
+    height: 311px;
+    left: -102px;
+    top: 251px;
+
+    background: #961A1A;
+    opacity: 0.5;
+    filter: blur(196px);
+}
+
+.purple-light {
+    position: absolute;
+    width: 259px;
+    height: 259px;
+    left: 50%;
+    top: -154px;
+
+    background: #833AB4;
+    opacity: 0.5;
+    filter: blur(196px);
+}
+
+.ball {
+    border-radius: 50%;
+}
+
+.purple-ball {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 868px;
+    top: -2px;
+    background: radial-gradient(64% 64% at 27.25% 26.5%, rgba(236, 208, 255, 0.64) 0%, rgba(161, 93, 207, 0.24) 59.67%, rgba(118, 49, 164, 0.208) 78.59%, rgba(86, 24, 128, 0.232) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    box-shadow: 3px 6px 27px -10px rgba(177, 118, 217, 0.25);
+    filter: blur(5px);
+    backdrop-filter: blur(2px);
+}
+
+.red-ball {
+    position: absolute;
+    width: 83px;
+    height: 83px;
+    left: 519px;
+    top: 83px;
+    
+    background: radial-gradient(64% 64% at 27.25% 26.5%, rgba(255, 208, 208, 0.536) 0%, rgba(212, 93, 93, 0.264) 59.67%, rgba(167, 49, 49, 0.248) 78.59%, rgba(130, 25, 25, 0.248) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    box-shadow: 3px 6px 27px -10px rgba(223, 125, 125, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.red-ball--small {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 851px;
+    top: 547px;
+    
+    background: radial-gradient(64% 64% at 27.25% 26.5%, rgba(255, 208, 208, 0.48) 0%, rgba(212, 93, 93, 0.248) 59.67%, rgba(167, 49, 49, 0.264) 78.59%, rgba(130, 25, 25, 0.232) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    box-shadow: 3px 6px 27px -10px rgba(223, 125, 125, 0.25);
+    filter: blur(2.5px);
+    backdrop-filter: blur(2px);
 }
